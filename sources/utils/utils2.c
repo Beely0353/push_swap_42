@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:04:57 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/12 15:08:08 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:12:31 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,20 @@ long	ft_atoi(const char *str)
 		str++;
 	}
 	return (sign * result);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*dst;
+	size_t	len;
+
+	len = ft_strlen(s1) + 1;
+	dst = malloc(len * sizeof(char));
+	if (!dst)
+		return (0);
+	len = -1;
+	while (s1[++len])
+		dst[len] = s1[len];
+	dst[len] = '\0';
+	return (dst);
 }

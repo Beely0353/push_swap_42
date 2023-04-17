@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:05:33 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/12 16:16:34 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:12:26 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,6 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s1)
-{
-	char	*dst;
-	size_t	len;
-
-	len = ft_strlen(s1) + 1;
-	dst = malloc(len * sizeof(char));
-	if (!dst)
-		return (0);
-	len = -1;
-	while (s1[++len])
-		dst[len] = s1[len];
-	dst[len] = '\0';
-	return (dst);
-}
-
 void	free_tab(char **tab)
 {
 	int	i;
@@ -58,5 +42,17 @@ void	free_tab(char **tab)
 	i = -1;
 	while (tab[++i])
 		free(tab[i]);
-	free(tab[i]);
+	free(tab);
+}
+
+void	free_lst(t_lst *pile)
+{
+	t_lst *n;
+
+	while (pile)
+	{
+		n = pile;
+		pile = pile->next;
+		free(n);
+	}
 }

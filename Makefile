@@ -11,7 +11,8 @@ OBJECTS			=	./bin
 
 SRCS			=	push_swap.c \
 					$(addprefix parsing/, check_arg.c pars.c)\
-					$(addprefix utils/, utils1.c utils2.c ft_split.c lst.c)
+					$(addprefix utils/, utils1.c utils2.c ft_split.c lst.c)\
+					$(addprefix operations/, rotate.c swap_push.c)
 
 OBJS			=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 

@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:57:51 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/12 17:47:35 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/17 12:37:46 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void print_tab(char **tab)
 int main(int ac, char **av)
 {
 	t_lst	*a;
+	t_lst	*b;
 
-	(void) ac;
-	a = check_arg(av);
+	a = check_arg(ac, av);
 	if (a == NULL)
 		return (write(1, "ERROR\n", 6));
-	print_lst(a);
+	system("leaks push_swap");
 }

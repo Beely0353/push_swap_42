@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:14:42 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/12 16:15:54 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/13 13:50:30 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ t_lst	*ft_lstlast(t_lst	*lst)
 	return (lst);
 }
 
-void	ft_lstadd_front(t_lst **alst, t_lst *new)
+void	ft_lstadd_front(t_lst **alst, t_lst *n)
 {
-	if (!alst || !new)
+	if (!alst || !n)
 		return ;
-	new->next = *alst;
-	*alst = new;
+	n->next = *alst;
+	*alst = n;
 }
 
-void	ft_lstadd_back(t_lst **alst, t_lst *new)
+void	ft_lstadd_back(t_lst **alst, t_lst *n)
 {
 	t_lst	*last;
 
 	if (*alst)
 	{
 		last = ft_lstlast(*alst);
-		last->next = new;
+		last->next = n;
 	}
 	else
-		*alst = new;
+		*alst = n;
 }
 
 t_lst	*ft_lstnew(long	content)

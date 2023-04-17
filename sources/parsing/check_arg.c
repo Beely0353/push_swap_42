@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:06:26 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/12 18:27:21 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:03:41 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ char	**cat_tab(char **tab1, char **tab2)
 	while (tab2[++i])
 		dest[j++] = ft_strdup(tab2[i]);
 	dest[j] = NULL;
-	free(tab1);
-	free(tab2);
+	free_tab(tab1);
+	free_tab(tab2);
 	return (dest);
 }
 
@@ -76,12 +76,14 @@ int check_isnbr(char **tab)
 	return (0);
 }
 
-t_lst	*check_arg(char	**av)
+t_lst	*check_arg(int ac, char	**av)
 {
 	int		i;
 	int		j;
 	char	**tab;
 
+	if (ac == 1)
+		return (NULL);
 	i = 1;
 	j = 0;
 	tab = ft_split(av[1], ' ');
