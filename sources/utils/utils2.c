@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:04:57 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/13 14:12:31 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:17:25 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,17 @@ char	*ft_strdup(const char *s1)
 		dst[len] = s1[len];
 	dst[len] = '\0';
 	return (dst);
+}
+
+size_t	ft_lstlen(t_lst	*a)
+{
+	size_t	i;
+
+	i = 0;
+	while (a)
+	{
+		i++;
+		a = a->next;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:14:42 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/13 13:50:30 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:17:57 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_lstadd_back(t_lst **alst, t_lst *n)
 		*alst = n;
 }
 
-t_lst	*ft_lstnew(long	content)
+t_lst	*ft_lstnew(long content)
 {
 	t_lst	*dst;
 
@@ -56,4 +56,10 @@ t_lst	*ft_lstnew(long	content)
 	dst->next = NULL;
 	dst->content = content;
 	return (dst);
+}
+
+void	free_lsts(t_lst *a, t_lst *b)
+{
+	free_lst(a);
+	free_lst(b);
 }

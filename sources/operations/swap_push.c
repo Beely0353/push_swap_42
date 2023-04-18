@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 14:18:31 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/13 16:08:08 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:18:38 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sswap(t_lst **a, t_lst **b)
 void	push(t_lst	**from, t_lst **to, char AB)
 {
 	t_lst	*tmp;
-	
+
 	if (AB == 'a')
 		write(1, "pa\n", 3);
 	if (AB == 'b')

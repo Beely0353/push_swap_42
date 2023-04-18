@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:06:26 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/13 14:03:41 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:18:03 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ char	**cat_tab(char **tab1, char **tab2)
 	int		i;
 	int		j;
 	char	**dest;
+
 	i = 0;
 	j = 0;
 	while (tab1[i])
 		i++;
 	while (tab2[j])
 		j++;
-	dest = malloc(sizeof(char*) * (i + j + 1));
+	dest = malloc(sizeof(char *) * (i + j + 1));
 	i = -1;
 	j = 0;
 	while (tab1[++i])
@@ -40,8 +41,8 @@ char	**cat_tab(char **tab1, char **tab2)
 int	check_isdup(t_lst *a)
 {
 	t_lst	*tmp;
-	
-	while(a)
+
+	while (a)
 	{
 		tmp = a->next;
 		while (tmp)
@@ -55,7 +56,7 @@ int	check_isdup(t_lst *a)
 	return (0);
 }
 
-int check_isnbr(char **tab)
+int	check_isnbr(char **tab)
 {
 	int	i;
 	int	j;
@@ -66,7 +67,7 @@ int check_isnbr(char **tab)
 		j = 0;
 		if (tab[i][j] == '-' || tab[i][j] == '-')
 			j++;
-		while(tab[i][j])
+		while (tab[i][j])
 		{
 			if (!ft_isdigit(tab[i][j]))
 				return (1);
@@ -84,6 +85,8 @@ t_lst	*check_arg(int ac, char	**av)
 
 	if (ac == 1)
 		return (NULL);
+	if (ac == 2 && av[1][0] == '\0')
+		return (NULL);
 	i = 1;
 	j = 0;
 	tab = ft_split(av[1], ' ');
@@ -94,5 +97,5 @@ t_lst	*check_arg(int ac, char	**av)
 		free_tab(tab);
 		return (NULL);
 	}
-	return(get_lst(tab));
+	return (get_lst(tab));
 }

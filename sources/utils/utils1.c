@@ -6,11 +6,11 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:05:33 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/13 14:12:26 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:17:39 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 int	ft_isdigit(int c)
 {
@@ -35,24 +35,25 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	free_tab(char **tab)
+void	free_tab(char **tab1)
 {
 	int	i;
 
 	i = -1;
-	while (tab[++i])
-		free(tab[i]);
-	free(tab);
+	while (tab1[++i])
+		free(tab1[i]);
+	free(tab1);
 }
 
-void	free_lst(t_lst *pile)
+void	free_lst(t_lst *a)
 {
-	t_lst *n;
+	t_lst	*n;
 
-	while (pile)
+	while (a)
 	{
-		n = pile;
-		pile = pile->next;
-		free(n);
+		n = a;
+		a = a->next;
+		if (n)
+			free(n);
 	}
 }

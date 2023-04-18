@@ -6,13 +6,13 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:03:30 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/17 12:24:10 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:18:34 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate(t_lst **pile, char AB)
+void	rotate(t_lst **pile, char AB)
 {
 	t_lst	*first;
 	t_lst	*second;
@@ -34,16 +34,16 @@ void rotate(t_lst **pile, char AB)
 
 void	double_rotate(t_lst	**a, t_lst **b)
 {
-	rotate(a,'a');
-	rotate(b,'b');
+	rotate(a, 'a');
+	rotate(b, 'b');
 	write(1, "rr\n", 3);
 }
 
-void rrotate(t_lst **pile, char AB)
+void	rrotate(t_lst **pile, char AB)
 {
-	t_lst *tmp1;
-	t_lst *tmp2;
-	t_lst *tmp_last;
+	t_lst	*tmp1;
+	t_lst	*tmp2;
+	t_lst	*tmp_last;
 
 	if (AB == 'a')
 		write(1, "rra\n", 4);
@@ -65,7 +65,7 @@ void rrotate(t_lst **pile, char AB)
 
 void	double_rrotate(t_lst	**a, t_lst **b)
 {
-	rrotate(a,'a');
-	rrotate(b,'b');
+	rrotate(a, 'a');
+	rrotate(b, 'b');
 	write(1, "rrr\n", 4);
 }

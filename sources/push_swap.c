@@ -6,35 +6,52 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:57:51 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/17 12:37:46 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/18 18:16:50 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_lst(t_lst *pile)
+int	a_is_sorted(t_lst *a)
 {
-	while (pile)
+	t_lst	*tmp;
+
+	while (a)
 	{
-		printf("%ld\n",pile->content);
-		pile = pile->next;
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->content > tmp->content)
+				return (0);
+			tmp = tmp->next;
+		}
+		a = a->next;
 	}
-}
-void print_tab(char **tab)
-{
-	int i = -1;
-
-	while (tab[++i])
-		printf("%s\n", tab[i]);
+	free_lst(a);
+	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_lst	*a;
 	t_lst	*b;
 
 	a = check_arg(ac, av);
+	b = NULL;
 	if (a == NULL)
 		return (write(1, "ERROR\n", 6));
-	system("leaks push_swap");
+	if (a_is_sorted(a))
+		return (0);
+	else if (ft_lstlen(a) == 2)
+		swap(&a, 'a');
+	else if (ft_lstlen(a) == 3)
+		short_sorting_3(&a);
+	else if (ft_lstlen(a) == 4)
+		short_sorting_4(&a, &b);
+	else if (ft_lstlen(a) == 5)
+		short_sorting_5(&a, &b);
+	else
+		sort_big_stack(&a, &b);
+	free_lsts(a, b);
+	return (0);
 }
