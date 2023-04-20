@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:58:18 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/18 18:17:10 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:52:23 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int		ft_isdigit(int c);
 int		ft_isspace(int c);
 size_t	ft_strlen(const char *s);
 long	ft_atoi(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
 
-t_lst	*check_arg(int ac, char	**av);
+int		empty_av(char **av);
+t_lst	*check_arg(char	**av);
 int		check_isdup(t_lst *a);
 void	indexing(t_lst **a);
 

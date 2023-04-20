@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:57:51 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/20 13:26:40 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:58:29 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (0);
-	a = check_arg(ac, av);
+	a = check_arg(av);
 	b = NULL;
 	if (a == NULL)
 		return (write(2, "ERROR\n", 6));

@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:04:57 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/18 18:17:25 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:36:31 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,14 @@ size_t	ft_lstlen(t_lst	*a)
 		a = a->next;
 	}
 	return (i);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i] && s1[i] != '\0')
+		i++;
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

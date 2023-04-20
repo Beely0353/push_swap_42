@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:06:26 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/20 13:30:04 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:53:06 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	**cat_tab(char **tab1, char **tab2)
 
 	i = 0;
 	j = 0;
+	if (tab2 == NULL)
+		return (tab1);
 	while (tab1[i])
 		i++;
 	while (tab2[j])
@@ -81,13 +83,27 @@ int	check_isnbr(char **tab)
 	return (0);
 }
 
-t_lst	*check_arg(int ac, char	**av)
+int	empty_av(char **av)
+{
+	size_t	i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (av[i][0] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+t_lst	*check_arg(char	**av)
 {
 	int		i;
 	int		j;
 	char	**tab;
 
-	if (ac == 2 && av[1][0] == '\0')
+	if (empty_av(av))
 		return (NULL);
 	i = 1;
 	j = 0;
