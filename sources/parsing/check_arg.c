@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:06:26 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/18 18:18:03 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/20 13:30:04 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ int	check_isdup(t_lst *a)
 
 int	check_isnbr(char **tab)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	long	tmp;
 
 	i = -1;
 	while (tab[++i])
@@ -73,6 +74,9 @@ int	check_isnbr(char **tab)
 				return (1);
 			j++;
 		}
+		tmp = ft_atoi(tab[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			return (1);
 	}
 	return (0);
 }
@@ -83,8 +87,6 @@ t_lst	*check_arg(int ac, char	**av)
 	int		j;
 	char	**tab;
 
-	if (ac == 1)
-		return (NULL);
 	if (ac == 2 && av[1][0] == '\0')
 		return (NULL);
 	i = 1;

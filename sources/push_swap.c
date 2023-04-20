@@ -6,7 +6,7 @@
 /*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:57:51 by biaroun           #+#    #+#             */
-/*   Updated: 2023/04/18 18:16:50 by biaroun          ###   ########.fr       */
+/*   Updated: 2023/04/20 13:26:40 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ int	main(int ac, char **av)
 	t_lst	*a;
 	t_lst	*b;
 
+	if (ac == 1)
+		return (0);
 	a = check_arg(ac, av);
 	b = NULL;
 	if (a == NULL)
-		return (write(1, "ERROR\n", 6));
+		return (write(2, "ERROR\n", 6));
 	if (a_is_sorted(a))
 		return (0);
 	else if (ft_lstlen(a) == 2)

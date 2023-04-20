@@ -17,25 +17,24 @@ SRCS			=	push_swap.c \
 
 OBJS			=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
-CFLAGS			=	-Wall -Wextra -Werror -Iincludes -arch x86_64 -g
+CFLAGS			=	-Wall -Wextra -Werror -Iincludes -g
 CC				=	gcc
 CINCLUDES		=	-I ./includes
 
 ${OBJECTS}/%.o: ${SOURCES}/%.c
-	@mkdir -p $(dir $@)
-	@${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
+	mkdir -p $(dir $@)
+	${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
 
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	@${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 
 clean:
-	@rm -rf ${OBJECTS}
+	rm -rf ${OBJECTS}
 
 fclean: clean
-	@rm -rf includes/readline
-	@rm -f ${NAME}
+	rm -f ${NAME}
 
 re: fclean all
 
